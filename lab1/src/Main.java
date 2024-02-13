@@ -1,22 +1,26 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+
 public class Main {
-    private static double m;
-    private static double c;
-    private static double b;
+    private double m;
+    private double c;
+    private double b;
 
     public static void main(String[] args) {
-        run();
+        Main program = new Main();
+        program.run();
     }
-    private static void run() {
+
+    private void run() {
         inputValues();
         calculateV();
         calculateF();
         print();
         printDateTime();
     }
-    private static void inputValues() {
+
+    private void inputValues() {
         Scanner scanner = new Scanner(System.in);
         try {
             System.out.print("Введіть значення m: ");
@@ -32,21 +36,25 @@ public class Main {
             scanner.close();
         }
     }
-    private static void calculateV() {
-        double V = Math.cbrt(m*Math.tan(b)+Math.abs(c*Math.sin(b)));
-        System.out.println("V = " + V);
+
+    private double calculateV() {
+        return Math.cbrt(m * Math.tan(b) + Math.abs(c * Math.sin(b)));
     }
-    private static void calculateF() {
-        double F = m * Math.cos(c) + Math.pow(c, 2);
-        System.out.println("F = " + F);
+
+    private double calculateF() {
+        return m * Math.cos(c) + Math.pow(c, 2);
     }
-    private static void print() {
+
+    private void print() {
+        System.out.println("V="+calculateV());
+        System.out.println("F="+calculateF());
         System.out.println("Введені дані:");
         System.out.println("m = " + m);
         System.out.println("c = " + c);
         System.out.println("b = " + b);
     }
-    private static void printDateTime() {
+
+    private void printDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         String dateTime = dateFormat.format(new Date());
         System.out.println("Поточна дата та час: " + dateTime);
