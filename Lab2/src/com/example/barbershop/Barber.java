@@ -6,7 +6,7 @@ public class Barber {
     private String firstName;
     private String middleName;
     private String phoneNumber;
-    private int experience;  // Доданий атрибут для досвіду
+    private int experience;
     private String specialization;
     private double hourlyRate;
     private String[] services;
